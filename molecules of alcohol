@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+"""
+Реализовано 2 функции, 1 для чтения, вторая для записи
+"""
+def number_of_mol():
+  """
+  Ввод: данные в файле input.txt. Вывод: максимальное количество
+  молекул спирта, которые могут получится из данного набора атомов.
+  """
+  try:
+    with open('input.txt', 'rt') as file:
+      text=file.read().split(' ')
+      if len(text) != 3:
+        print('Insufficient data to complete the task!')
+        return None # СООБЩЕНИЕ ОБ ОШИБКЕ
+      try:
+        return min(int(text[0])//2, int(text[1])//6, int(text[2]))
+      except ValueError:
+        return None
+  except FileNotFoundError:
+    print('File with data isn\'t found!')
+    return None
+
+def writting(num):
+  """
+  Вывод ответа в файл output.txt.
+  num - число молекул.
+  """
+  # Если файла нет, то он создаётся, поэтому {try: except:} опущены
+  with open('output.txt', 'wt') as file:
+    if num is None:
+      print('Data error!')
+      return
+    file.write(f'Number of possible molecules of alcohol: {num}')
+
+writting(number_of_mol())
