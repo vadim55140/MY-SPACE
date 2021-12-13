@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+"""
+Использование библиотеки os.
+"""
+import os
+print(f'Имя ОС: {os.name}')
+print(f'Имя залогинившегося юзера: {os.getlogin()}')
+print(f'СОдержание папки.: {os.listdir(path=".")}')
