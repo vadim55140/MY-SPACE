@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+
+import numpy as n
+"""
+Транспонирование матрицы.
+"""
+matrix=n.random.randint(1, 100, (3,3))
+matrix_transponed=matrix.transpose()
+print(f'Начальная матрица:\n{matrix}')
+print(f'Транспонированная матрица:\n{matrix_transponed}')
